@@ -18,6 +18,7 @@ const Home = () => {
           </div>
         </section>
       </main>
+      <SpeedInsights />
     </div>
   );
 };
