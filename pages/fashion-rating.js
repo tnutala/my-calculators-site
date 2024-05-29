@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 
 const FashionRating = () => {
   const [score, setScore] = useState(null);
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add your logic to calculate the score here
     setScore(Math.floor(Math.random() * 100) + 1); // Placeholder logic for score calculation
-
-    
   };
 
   return (
@@ -24,6 +24,10 @@ const FashionRating = () => {
               <label className="block text-sm font-medium text-gray-700">Age</label>
               <input
                 type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                min="0"
+                max="118"
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
@@ -31,6 +35,8 @@ const FashionRating = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Gender</label>
               <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               >

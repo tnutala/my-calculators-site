@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar';
 
 const DietExercise = () => {
   const [score, setScore] = useState(null);
+  const [age, setAge] = useState('');
+  const [gender, setGender] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +19,14 @@ const DietExercise = () => {
         <p className="mb-4">Use this calculator to assess your diet and exercise regimen. Simply fill in the form and click "Calculate" to see your score.</p>
         <div className="flex">
           <form onSubmit={handleSubmit} className="w-1/2 space-y-4">
-            {/* Form fields */}
             <div>
               <label className="block text-sm font-medium text-gray-700">Age</label>
               <input
                 type="number"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                min="0"
+                max="118"
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
@@ -29,6 +34,8 @@ const DietExercise = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700">Gender</label>
               <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               >
@@ -38,7 +45,6 @@ const DietExercise = () => {
                 <option value="other">Other</option>
               </select>
             </div>
-            {/* Add more form fields as needed */}
             <button
               type="submit"
               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700"

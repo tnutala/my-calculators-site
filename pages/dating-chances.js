@@ -9,7 +9,7 @@ const DatingChances = () => {
   const datingProbability = (age, gender) => {
     const k1 = 0.1;
     const mu1 = 25;
-    const genderFactor = (gender === 'male') ? 0.9 : 1.1;
+    const genderFactor = (gender === 'male') ? 1.1 : 0.9;
     const ageFactor = 1 / (1 + Math.exp(-k1 * (age - mu1)));
     const probability = ageFactor * genderFactor;
     return probability;
@@ -35,6 +35,8 @@ const DatingChances = () => {
                 type="number"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
+                min="0"
+                max="118"
                 required
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               />
