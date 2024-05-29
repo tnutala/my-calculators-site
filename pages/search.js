@@ -1,10 +1,18 @@
 import { useRouter } from 'next/router';
 import Navbar from '../components/Navbar';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Search = () => {
   const router = useRouter();
   const { query } = router.query;
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    if (query) {
+      setSearchQuery(query);
+    }
+  }, [query]);
 
   const calculators = [
     { name: 'Fashion Rating Calculator', link: '/fashion-rating' },
@@ -13,14 +21,14 @@ const Search = () => {
   ];
 
   const results = calculators.filter(calculator =>
-    calculator.name.toLowerCase().includes(query.toLowerCase())
+    calculator.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div>
       <Navbar />
       <main className="p-8">
-        <h1 className="text-3xl font-bold mb-4">Search Results for "{query}"</h1>
+        <h1 className="text-3xl font-bold mb-4">Search Results for "{searchQuery}"</h1>
         {results.length > 0 ? (
           <ul>
             {results.map((result, index) => (
