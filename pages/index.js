@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import CalculatorCard from '../components/CalculatorCard';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const Home = () => {
   return (
