@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     // Email options
     const mailOptions = {
       from: email,
-      to: 'calculatorsforlife@gmail.com',
+      to: process.env.EMAIL_USER,
       subject: 'Calculator Request',
       html: `<p><strong>Name:</strong> ${name}</p>
              <p><strong>Email:</strong> ${email}</p>
