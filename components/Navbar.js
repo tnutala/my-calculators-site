@@ -8,9 +8,14 @@ const Navbar = () => {
         <Image src="/logo.png" alt="Logo" width={40} height={40} />
         <Link href="/" className="text-xl font-bold">Calculators For Life</Link>
       </div>
-      <div className="space-x-4">
+      <div className="space-x-4 mb-4 sm:mb-0">
         <Link href="/blog" className="hover:underline">Blog</Link>
         <Link href="/about" className="hover:underline">About</Link>
+      </div>
+      <div>
+        <Link href="/request-calculator">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">Request a Calculator</button>
+        </Link>
       </div>
     </nav>
   );
